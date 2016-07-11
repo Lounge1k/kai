@@ -1,0 +1,66 @@
+.header {
+  height: 100px;
+  border-bottom: 2px solid rgba(151, 151, 151, 0.28);
+  padding: 36px 0px;
+
+  .logo {
+    height: 26px;
+  }
+
+  .profile {
+    display: inline-block;
+    float: right;
+    font-size: 14px;
+
+    .dropdown-menu {
+      border-radius: 6px;
+      top: 38px;
+    }
+
+    .dropdown-toggle {
+      text-align: right;
+    	color: rgba(74, 74, 74, 0.7);
+      text-decoration: none;
+
+      .caret-settings {
+        background-image: url('/assets/svg/btn-settings.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 24px;
+        width: 25px;
+        border-top: none;
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+
+.top-menu {
+  display: inline-block;
+  width: 230px;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+
+  a {
+    opacity: 0.8;
+    text-transform: uppercase;
+    font-weight: 700;
+  	font-size: 12px;
+  	line-height: 1.8;
+  	letter-spacing: 1.5px;
+  	text-align: center;
+  	color: #4a4a4a;
+    text-decoration: none;
+    width: 32%;
+    display: inline-block;
+
+    &.active {
+      color: #5aeb5c;
+      border-bottom: 2px solid;
+    }
+  }
+}

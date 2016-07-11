@@ -1,0 +1,7 @@
+stage_deploy:
+  cache:
+    untracked: true
+  only:
+    - develop
+  script:
+    - echo 'autodeploy process'
