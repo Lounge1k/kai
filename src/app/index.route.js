@@ -25,6 +25,12 @@
         templateUrl: 'app/components/login/login.html',
         controller: 'LogoutController',
         controllerAs: 'vm'
+      })
+      .state('changePassword', {
+        url: '/change-password',
+        templateUrl: 'app/components/change-pass/change-pass.html',
+        controller: 'ChangePassController',
+        controllerAs: 'vm'
       });
 
     $urlRouterProvider.otherwise('/main');

@@ -1,0 +1,25 @@
+<div class="row login-container text-center">
+  <div>
+    <form name="changeForm" class="animation" ng-class="changeError ? 'form-errored' : ''" role="form" method="post" ng-submit="onChange($event)" autocomplete="off">
+      <div class="inputs-container">
+        <input  ng-model="password"
+                type="password"
+                class="form-control text-center password-input"
+                placeholder="Input New Password"
+                validate="password"
+                required
+                autocomplete="off">
+        <span class="pseudo-circle pseudo-circle-left"></span>
+        <span class="pseudo-circle pseudo-circle-right"></span>
+        <input  ng-model="confirmPassword"
+                type="password"
+                class="form-control text-center password-input"
+                placeholder="Repeat Password"
+                validate="password"
+                required
+                autocomplete="off">
+        <p class="error-message" ng-show="changeError" ng-bind="changeError"></p>
+        <button type="submit" class="btn btn-login" ng-class="(!password || !confirmPassword || password !== confirmPassword) ? 'btn-login-disabled' : ''" type="submit" ng-disabled="!confirmPassword || !password || confirmPassword !== password">Change</button>
+    </form>
+  </div>
+</div>

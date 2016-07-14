@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('kai', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ngMaterial']);
+    .module('kai', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ngMaterial', '720kb.datepicker']);
 
 })();

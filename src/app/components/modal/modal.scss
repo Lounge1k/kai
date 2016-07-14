@@ -1,0 +1,80 @@
+.popup-wrap{
+  position: fixed;
+  top: 100px;
+  left: 0;
+  z-index: 1001;
+  width: 100%;
+  text-align: center;
+  &.container{
+    top: 150px;
+  }
+}
+
+div.popup{
+  display: inline-block;
+  background: #ffffff;
+  text-align: center;
+  position: relative;
+  padding: 20px 30px 30px;
+  min-width: 400px;
+  max-height: 100%;
+  font-size: 16px;
+  z-index: 1002;
+  -webkit-box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.5);
+
+  .close-popup{
+    position: absolute;
+    right: 28px;
+    top: 23px;
+    color: #000000;
+    cursor: pointer;
+  }
+  h4{
+    margin-top: 5px;
+    margin-bottom: 20px;
+    &.center{
+      text-align: left;
+    }
+  }
+  .group-header{
+    font-size: 16px;
+    margin: 0 0 5px;
+  }
+  .form-group{
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    position: relative;
+    .generate-url{
+      display: block;
+      position: absolute;
+      top: 34px;
+      right: 20px;
+      font-size: 12px;
+      font-style: italic;
+      color: #8a8a8a;
+    }
+    &.checkboxes-group{
+      .checkbox-item{
+        margin-top: 5px;
+      }
+    }
+  }
+  label{
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    color: #2b2b2b;
+  }
+  #text, .question{
+    margin: 20px 0;
+  }
+  .confirm-buttons{
+    margin-top: 30px;
+    .btn{
+      margin: 0 10px;
+      min-width: 70px;
+    }
+  }
+}

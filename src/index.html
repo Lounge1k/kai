@@ -29,6 +29,17 @@
 
     <div class="app-wrapper" ui-view></div>
 
+    <div class="container popup-wrap" ng-style="{display: (overlay ? 'block' : 'none')}" style="display: none;">
+        <div id="confirmPopup" class="popup animated" ng-show="confirm.state" ng-style="confirm.style">
+            <div class="question" ng-bind="confirm.text"></div>
+            <div class="confirm-buttons">
+                <div class="btn" ng-click="confirm.func()">OK</div>
+                <div class="btn" ng-click="overlay = false">Cancel</div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->
     <!-- run `gulp inject` to automatically populate bower script dependencies -->

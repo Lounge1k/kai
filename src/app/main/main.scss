@@ -5,10 +5,6 @@
 .btn-add {
   width: 234px;
   height: 40px;
-  background-color: #5aeb5c;
-  border-radius: 0px;
-  color: #fff;
-  padding: 8px;
   text-align: left;
 
   &:hover {
@@ -86,6 +82,113 @@
     line-height: 26px;
   }
 
+  .edit-panel {
+    background-color: rgba(216, 216, 216, 0.14);
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 38px;
+    box-shadow: 0 1px 4px 0 rgba(155, 154, 155, 0.4);
+
+    .company-panel {
+      width: 48%;
+      float: left;
+    }
+
+    .company-owner-panel {
+      width: 48%;
+      float: right;
+    }
+
+    .action-buttons {
+      margin-top: 36px;
+      padding: 0px;
+
+      .btn-save {
+        width: 136px;
+        margin-right: -6px;
+
+        i {
+          float: right;
+        }
+      }
+
+      .btn-remove, .btn-archive, .btn-export {
+        width: 120px;
+      }
+    }
+
+    .row {
+      margin-bottom: 4px;
+    }
+
+    .col-md-6 {
+      margin-right: 2px;
+      margin-left: 2px;
+      width: 49%;
+    }
+
+    .col-md-4 {
+      margin-right: 2px;
+      margin-left: 2px;
+      width: 32.45%;
+    }
+
+    .col-md-12 {
+      width: 98.7%;
+      margin-left: 2px;
+    }
+
+    .block-title {
+      font-weight: 700;
+      font-size: 10px;
+    	letter-spacing: 1.2px;
+    	color: #9b9b9b;
+      opacity: 0.8;
+    }
+
+    .count-users {
+      padding: 0px;
+
+      input {
+        width: 100%;
+      }
+    }
+
+    .input-helper {
+      position: absolute;
+      left: 20px;
+      font-size: 10px;
+      bottom: 8px;
+      color: rgba(74, 74, 74, 0.3);
+    }
+  }
+
+  .company-input {
+    height: 60px;
+    padding: 8px 13px 10px 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #4a4a4a;
+    background-color: #fff;
+    white-space: normal;
+    border: none;
+  }
+
+  .btn-select {
+    color: rgba(74, 74, 74, 0.5);
+    i.material-icons {
+      float: left;
+      color: rgba(74, 74, 74, 0.08);
+    }
+  }
+
+  .btn-selected {
+    color: #4a4a4a;
+    i.material-icons {
+      color: #5aeb5c;
+    }
+  }
+
   .company {
     height: 60px;
 	  background-color: #ffffff;
@@ -93,6 +196,19 @@
     border-left: 8px solid #f8e71c;
     padding: 10px 34px;
     position: relative;
+
+    &.company-selected {
+
+    }
+
+    &.company-muted {
+      opacity: 0.05;
+    }
+
+    .datepicker-container {
+      margin-left: -15%;
+      margin-top: 40px;
+    }
 
     .title {
       font-weight: 700;
@@ -102,6 +218,16 @@
     	color: #4a4a4a;
       text-transform: uppercase;
       margin: 0px;
+    }
+
+    .title-selected {
+      font-size: 14px;
+      line-height: 1.5;
+      letter-spacing: 1.8px;
+      color: #4a4a4a;
+      font-weight: 900;
+      margin-top: 8px;
+      text-transform: uppercase;
     }
 
     .subtitle {
@@ -155,4 +281,48 @@
       }
     }
   }
+}
+
+
+// datepicker
+
+.datepicker-input {
+  position: absolute;
+  right: 3000px;
+}
+
+.underlined {
+  border-bottom: dashed 1px #80e965;
+}
+
+_720kb-datepicker-calendar {
+  font-family: Lato, sans-serif;
+}
+._720kb-datepicker-calendar-header, ._720kb-datepicker-calendar-days-header {
+  background: #5f5f66 !important;
+  color: #fff;
+}
+
+._720kb-datepicker-calendar-days-header {
+  font-weight: 100;
+  line-height: 6px;
+}
+
+._720kb-datepicker-calendar-header a, ._720kb-datepicker-calendar-header a:hover {
+  color: #fff;
+}
+
+._720kb-datepicker-calendar-day._720kb-datepicker-active, ._720kb-datepicker-calendar-day:hover {
+    background: #f8e71c;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: 900;
+}
+
+._720kb-datepicker-calendar-month span {
+  color: #fff;
+}
+
+._720kb-datepicker-calendar-days-header div {
+  color: #fff;
 }
