@@ -1,8 +1,7 @@
 <div class="row login-container text-center">
   <div>
     <img class="logo" src="/assets/images/kai-logo.png"></img>
-    <form name="loginForm" class="animation" role="form" method="post" action="/login" ng-submit="onLogin($event)" autocomplete="off">
-      <p class="error-message" ng-show="loginError" ng-bind="loginError"></p>
+    <form name="loginForm" class="animation" ng-class="loginError ? 'form-errored' : ''" role="form" method="post" ng-submit="onLogin($event)" autocomplete="off">
       <div class="inputs-container">
         <input  ng-model="email"
                 type="text"
@@ -22,7 +21,7 @@
                 validate="password"
                 required
                 autocomplete="off">
-
+        <p class="error-message" ng-show="loginError" ng-bind="loginError"></p>
         <button type="submit" class="btn btn-login" ng-class="loginForm.$invalid ? 'btn-login-disabled' : ''" type="submit" ng-disabled="loginForm.$invalid">Log in</button>
     </form>
   </div>

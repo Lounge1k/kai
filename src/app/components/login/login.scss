@@ -19,8 +19,8 @@
     .inputs-container {
       position: relative;
       input {
-        opacity: 0.5;
       	font-size: 18px;
+        font-weight: 800;
       	text-align: center;
       	color: #4a4a4a;
         border-color: rgba(95, 95, 102, 0.2);
@@ -28,6 +28,23 @@
         width: 320px;
         height: 60px;
         box-shadow: none;
+
+        &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+          opacity: 0.5;
+          font-weight: 300;
+        }
+        &::-moz-placeholder { /* Firefox 19+ */
+          opacity: 0.5;
+          font-weight: 300;
+        }
+        &:-ms-input-placeholder { /* IE 10+ */
+          opacity: 0.5;
+          font-weight: 300;
+        }
+        &:-moz-placeholder { /* Firefox 18- */
+          opacity: 0.5;
+          font-weight: 300;
+        }
 
         &.username-input {
           border-bottom: none;
@@ -41,6 +58,10 @@
         &:focus {
           box-shadow: none;
           border-color: rgba(95, 95, 102, 0.2);
+        }
+
+        &.red-border {
+        	color: #ed2c44;
         }
       }
 
@@ -79,5 +100,20 @@
     .btn-login-disabled {
       background-color: #5f5f66;
     }
+
+    &.form-errored {
+      input {
+        color: #ed2c44 !important;
+      }
+    }
   }
+}
+
+.error-message {
+  position: absolute;
+  width: 100%;
+  bottom: 64px;
+  font-size: 14px;
+  text-align: center;
+  color: #5f5f66;
 }

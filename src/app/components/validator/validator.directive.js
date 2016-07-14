@@ -162,7 +162,7 @@
             }
 
             if (!('noMessage' in attrs)) {
-                element.after('<span class="invalid-label" for="' + _val + '"></span>');
+                // element.after('<span class="invalid-label" for="' + _val + '"></span>');
             }
         }
     }

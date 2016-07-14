@@ -6,7 +6,56 @@
       <a class="btn btn-add pull-left"><i class="material-icons">add</i> Neuen Mandant hinzufügen</a>
       <div class="search pull-right">
         <span class="search-icon"></span>
-        <input class="search-input pull-right" type="text" placeholder="Suche…"><i class="search-icon"></i></input>
+        <input class="search-input pull-right" ng-model="companySearch" type="text" placeholder="Suche…"><i class="search-icon"></i></input>
+      </div>
+    </div>
+  </div>
+  <div class="row companies">
+    <div class="col-md-12">
+      <div class="row company-header">
+        <div class="col-md-6">
+          <h2 class="list-title">Aktive mandanten <span class="counter" ng-if="companies && companies.length > 0 && filteredCompanies.length > 0">{{filteredCompanies.length}}</span></h1>
+        </div>
+        <div class="col-md-1 company-info-header" ng-if="companies.length > 0 && filteredCompanies.length > 0">
+          <span>BENUTZER</span>
+        </div>
+        <div class="col-md-1 company-info-header" ng-if="companies.length > 0 && filteredCompanies.length > 0">
+          <span>PROJEKTE</span>
+        </div>
+        <div class="col-md-1 company-info-header" ng-if="companies.length > 0 && filteredCompanies.length > 0">
+          <span>MODULE</span>
+        </div>
+        <div class="col-md-2 company-info-header" ng-if="companies.length > 0 && filteredCompanies.length > 0">
+          <span>LIZENZLAUFZEIT</span>
+        </div>
+      </div>
+      <div class="company" ng-if="!companies || companies.length === 0">
+        <p class="empty">Keine aktiven Mandanten vorhanden...<p>
+      </div>
+      <div class="company" ng-if="companies.length > 0 && (!filteredCompanies || filteredCompanies.length === 0)">
+        <p class="empty">Kein Ergebnis zu Ihrer Suche...<p>
+      </div>
+
+      <div class="company" ng-repeat="company in companies | filter:companySearch as filteredCompanies">
+          <div class="col-md-6">
+            <h1 class="title">{{company.title}}</h1>
+            <h2 class="subtitle">{{company.zip_code}} {{company.city}}</h2>
+          </div>
+          <div class="col-md-1 company-info-additional">
+            <span>{{company.count_users}}</span>
+          </div>
+          <div class="col-md-1 company-info-additional">
+            <span>{{company.count_users_per_project}}</span>
+          </div>
+          <div class="col-md-1 company-info-additional">
+            <!-- <span>Alle</span> -->
+          </div>
+          <div class="col-md-2 company-info-additional">
+            <span>{{formatDate(company.license_to_date)}}</span>
+          </div>
+          <div class="col-md-1 company-settings">
+            <span class="caret caret-settings"></span>
+          </div>
       </div>
     </div>
   </div>

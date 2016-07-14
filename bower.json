@@ -13,7 +13,7 @@
     "angular-ui-router": "~0.2.15",
     "angular-material": "~1.0.0",
     "material-design-iconfont": "~0.0.2",
-    "moment": "~2.10.6",
+    "moment": "^2.14.1",
     "animate.css": "~3.4.0",
     "angular": "~1.5.3",
     "fuse.js": "fuse#^2.2.0",

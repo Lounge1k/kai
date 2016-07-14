@@ -19,6 +19,12 @@
         templateUrl: 'app/components/login/login.html',
         controller: 'LoginController',
         controllerAs: 'vm'
+      })
+      .state('logout', {
+        url: '/logout',
+        templateUrl: 'app/components/login/login.html',
+        controller: 'LogoutController',
+        controllerAs: 'vm'
       });
 
     $urlRouterProvider.otherwise('/main');

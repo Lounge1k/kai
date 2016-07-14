@@ -9,6 +9,10 @@
   function config($logProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
+
+    // MomentJS locale
+    moment.locale('de');
+
   }
 
 })();
