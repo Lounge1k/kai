@@ -89,12 +89,12 @@
         var company = $scope.companies[i];
         (function(company) {
           if (company.id === companyId) {
-            console.log('Save company', company);
             // New company
             if (company.id === -1) {
               console.log('Create new company', company, company.ownerProfile);
               kaiService.createProfile(company.ownerProfile).then(function(data) {
-                company.owner = data.id;
+                console.log('Created result', data);
+                company.owner = data.data.profile_id;
                 kaiService.createCompany(company).then(function(data) {
                   $scope.resetSavingState();
                 }).catch(function(error) {
@@ -103,9 +103,16 @@
                 })
               }).catch(function(error) {
                 console.error('Error while creating profile ', company.ownerProfile, error);
+                kaiService.createCompany(company).then(function(data) {
+                  $scope.resetSavingState();
+                }).catch(function(error) {
+                  console.error('Error while creating company ', company, error);
+                  $scope.resetSavingState();
+                })
                 $scope.resetSavingState();
               })
             } else {
+              console.log('Save company', company);
               kaiService.saveCompany(company).then(function(data) {
                 if (company.owner) {
                   console.log('Save profile', company.owner, company.ownerProfile);
@@ -117,6 +124,24 @@
                   })
                 } else {
                   console.log('Want to create owner profile', company.ownerProfile);
+                  kaiService.createProfile(company.ownerProfile).then(function(data) {
+                    console.log('Created result', data);
+                    company.owner = data.data.profile_id;
+                    kaiService.saveCompany(company).then(function(data) {
+                      $scope.resetSavingState();
+                    }).catch(function(error) {
+                      console.error('Error while saving company ', company, error);
+                      $scope.resetSavingState();
+                    })
+                  }).catch(function(error) {
+                    console.error('Error while creating profile ', company.ownerProfile, error);
+                    kaiService.saveCompany(company).then(function(data) {
+                      $scope.resetSavingState();
+                    }).catch(function(error) {
+                      console.error('Error while saving company ', company, error);
+                      $scope.resetSavingState();
+                    })
+                  })
                 }
               }).catch(function(error) {
                 console.error('Error while saving company ' + company.id, error);

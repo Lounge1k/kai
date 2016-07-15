@@ -63,62 +63,65 @@
             </div>
         </div>
         <div class="row edit-panel" ng-if="selectedCompany === company.id">
-          <div class="col-md-6 company-panel">
-            <span class="block-title">ANGABEN ZUR FIRMA</span>
-            <div class="row">
-              <input type="text" placeholder="Firmenname" class="company-input col-md-6" ng-model="company.title"/>
-              <input type="text" placeholder="Addresse" class="company-input col-md-6" ng-model="company.street"/>
-            </div>
-            <div class="row">
-              <input type="text" placeholder="PLZ" class="company-input col-md-4" ng-model="company.zip_code"/>
-              <input type="text" placeholder="Land" class="company-input col-md-4" ng-model="company.city"/>
-              <input type="text" placeholder="Stadt" class="company-input col-md-4" ng-model="company.province"/>
-            </div>
-            <div class="row">
-              <div class="count-users col-md-6">
-                <input type="text" placeholder="Unlimitiert" class="company-input " ng-model="company.count_users"/>
-                <span class="input-helper">Max Anzahl der User</span>
+          <form name="editForm">
+            <div class="col-md-6 company-panel">
+              <span class="block-title">ANGABEN ZUR FIRMA</span>
+              <div class="row">
+                <input type="text" required placeholder="Firmenname" class="company-input col-md-6" ng-model="company.title"/>
+                <input type="text" required placeholder="Addresse" class="company-input col-md-6" ng-model="company.street"/>
               </div>
-              <div class="count-users col-md-6">
-                <input type="text" placeholder="Unlimitiert" class="company-input " ng-model="company.count_users_per_project"/>
-                <span class="input-helper">Max Anzahl der Projekte</span>
+              <div class="row">
+                <input type="text" required placeholder="PLZ" class="company-input col-md-4" ng-model="company.zip_code"/>
+                <input type="text" required placeholder="Land" class="company-input col-md-4" ng-model="company.city"/>
+                <input type="text" required placeholder="Stadt" class="company-input col-md-4" ng-model="company.province"/>
+              </div>
+              <div class="row">
+                <div class="count-users col-md-6">
+                  <input type="text" required placeholder="Unlimitiert" class="company-input " ng-model="company.count_users"/>
+                  <span class="input-helper">Max Anzahl der User</span>
+                </div>
+                <div class="count-users col-md-6">
+                  <input type="text" required max="{{company.count_users}}" placeholder="Unlimitiert" class="company-input " ng-model="company.count_users_per_project"/>
+                  <span class="input-helper">Max Anzahl der Projekte</span>
+                  <span class="input-heler" ng-show="editForm.company.count_users_per_project.$error.max">The value must be less than {{company.count_users}}!</span>
+                </div>
+              </div>
+              <!-- <div class="row">
+                <input type="text" class="company-input col-md-6" ng-model="company.title"/>
+                <input type="text" class="company-input col-md-6" ng-model="company.street"/>
+              </div>
+              <div class="row">
+                <input type="text" class="company-input col-md-6" ng-model="company.title"/>
+                <input type="text" class="company-input col-md-6" ng-model="company.street"/>
+              </div> -->
+            </div>
+            <div class="col-md-6 company-owner-panel">
+              <span class="block-title">ANGABEN ZUR ANSPRECHPERSON</span>
+              <div class="row">
+                <button class="company-input btn-select col-md-6" ng-class="company.ownerProfile.salutation === 'Herr' ? 'btn-selected' : ''" ng-click="company.ownerProfile.salutation = 'Herr'"><i class="material-icons">done</i> Herr</button>
+                <button class="company-input btn-select col-md-6" ng-class="company.ownerProfile.salutation === 'Frau' ? 'btn-selected' : ''" ng-click="company.ownerProfile.salutation = 'Frau'"><i class="material-icons">done</i> Frau</button>
+              </div>
+              <div class="row">
+                <input type="text" required class="company-input col-md-6" placeholder="Vorname" ng-model="company.ownerProfile.first_name"/>
+                <input type="text" required class="company-input col-md-6" placeholder="Nachname" ng-model="company.ownerProfile.last_name"/>
+              </div>
+              <div class="row">
+                <input type="text" required class="company-input col-md-12" placeholder="E-Mail" ng-model="company.ownerProfile.email"/>
+              </div>
+              <div class="row">
+                <input type="text" required class="company-input col-md-12" placeholder="Telefon" ng-model="company.ownerProfile.phone"/>
+              </div>
+              <div class="row">
+                <input type="text" class="company-input col-md-12" placeholder="Website" ng-model="company.ownerProfile.web_site"/>
               </div>
             </div>
-            <!-- <div class="row">
-              <input type="text" class="company-input col-md-6" ng-model="company.title"/>
-              <input type="text" class="company-input col-md-6" ng-model="company.street"/>
+            <div class="col-md-12 action-buttons">
+              <a class="btn btn-danger btn-remove pull-left" ng-if="selectedCompany != -1" ng-click="removeCompany(company.id)">Löschen</a>
+              <a class="btn btn-success btn-save pull-right" ng-click="editForm.$invalid || saveCompany(company.id)" ng-disabled="editForm.$invalid">Speichern <i class="material-icons">done</i></a>
+              <a class="btn btn-success btn-archive pull-right" ng-if="selectedCompany != -1">Archiv</a>
+              <a class="btn btn-success btn-export pull-right" ng-if="selectedCompany != -1">Export</a>
             </div>
-            <div class="row">
-              <input type="text" class="company-input col-md-6" ng-model="company.title"/>
-              <input type="text" class="company-input col-md-6" ng-model="company.street"/>
-            </div> -->
-          </div>
-          <div class="col-md-6 company-owner-panel">
-            <span class="block-title">ANGABEN ZUR ANSPRECHPERSON</span>
-            <div class="row">
-              <button class="company-input btn-select col-md-6" ng-class="company.ownerProfile.salutation === 'Herr' ? 'btn-selected' : ''" ng-click="company.ownerProfile.salutation = 'Herr'"><i class="material-icons">done</i> Herr</button>
-              <button class="company-input btn-select col-md-6" ng-class="company.ownerProfile.salutation === 'Frau' ? 'btn-selected' : ''" ng-click="company.ownerProfile.salutation = 'Frau'"><i class="material-icons">done</i> Frau</button>
-            </div>
-            <div class="row">
-              <input type="text" class="company-input col-md-6" placeholder="Vorname" ng-model="company.ownerProfile.first_name"/>
-              <input type="text" class="company-input col-md-6" placeholder="Nachname" ng-model="company.ownerProfile.last_name"/>
-            </div>
-            <div class="row">
-              <input type="text" class="company-input col-md-12" placeholder="E-Mail" ng-model="company.ownerProfile.email"/>
-            </div>
-            <div class="row">
-              <input type="text" class="company-input col-md-12" placeholder="Telefon" ng-model="company.ownerProfile.phone"/>
-            </div>
-            <div class="row">
-              <input type="text" class="company-input col-md-12" placeholder="Website" ng-model="company.ownerProfile.web_site"/>
-            </div>
-          </div>
-          <div class="col-md-12 action-buttons">
-            <a class="btn btn-danger btn-remove pull-left" ng-if="selectedCompany != -1" ng-click="removeCompany(company.id)">Löschen</a>
-            <a class="btn btn-success btn-save pull-right" ng-click="saveCompany(company.id)">Speichern <i class="material-icons">done</i></a>
-            <a class="btn btn-success btn-archive pull-right" ng-if="selectedCompany != -1">Archiv</a>
-            <a class="btn btn-success btn-export pull-right" ng-if="selectedCompany != -1">Export</a>
-          </div>
+          </form>
         </div>
       </div>
     </div>

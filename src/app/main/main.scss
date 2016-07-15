@@ -172,6 +172,10 @@
     background-color: #fff;
     white-space: normal;
     border: none;
+
+    &[required] {
+      // border: 1px solid;
+    }
   }
 
   .btn-select {

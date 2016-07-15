@@ -56,7 +56,7 @@
     }
 
     function removeCompany(companyId) {
-      return $http.delete(apiHost + 'company/'+company.id+'/')
+      return $http.delete(apiHost + 'company/'+companyId+'/')
         .then(function(response) {
           return response.data;
         })

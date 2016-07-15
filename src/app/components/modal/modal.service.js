@@ -28,10 +28,7 @@
             close: function(){
                 $rootScope.overlay = $rootScope.hasOpenedDialog;
                 $rootScope.advancedOverlay = false;
-                $rootScope.alert.state = false;
-                $rootScope.prompt.state = false;
                 $rootScope.confirm.state = false;
-                $rootScope.validator = null;
                 $(document).off('keypress');
             }
         };
