@@ -59,8 +59,13 @@
       return moment(date).format("DD MMMM YYYY");
     }
 
-    $scope.selectCompany = function(companyId) {
-      $scope.selectedCompany = companyId;
+    $scope.toggleCompany = function(companyId) {
+      console.log('Toggle company', companyId)
+      if ($scope.selectedCompany && $scope.selectedCompany === companyId) {
+        delete $scope.selectedCompany;
+      } else {
+        $scope.selectedCompany = companyId;
+      }
     }
 
     $scope.getSelectedClass = function(companyId) {
