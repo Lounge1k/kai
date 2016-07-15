@@ -28,6 +28,9 @@
         }).catch(function(err){
           if (err.status === 400) {
               $scope.loginError = err.message;
+          }
+          if (err.status === 401) {
+              $location.path('/login');
           } else {
               console.error(err);
           }
