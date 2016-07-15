@@ -77,11 +77,11 @@
               </div>
               <div class="row">
                 <div class="count-users col-md-6">
-                  <input type="text" required placeholder="Unlimitiert" class="company-input " ng-model="company.count_users"/>
+                  <input type="text" placeholder="Unlimitiert" class="company-input " ng-model="company.count_users"/>
                   <span class="input-helper">Max Anzahl der User</span>
                 </div>
                 <div class="count-users col-md-6">
-                  <input type="text" required max="{{company.count_users}}" placeholder="Unlimitiert" class="company-input " ng-model="company.count_users_per_project"/>
+                  <input type="text" max="{{company.count_users}}" placeholder="Unlimitiert" class="company-input " ng-model="company.count_users_per_project"/>
                   <span class="input-helper">Max Anzahl der Projekte</span>
                   <span class="input-heler" ng-show="editForm.company.count_users_per_project.$error.max">The value must be less than {{company.count_users}}!</span>
                 </div>
