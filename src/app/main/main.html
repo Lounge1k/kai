@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row toolbar">
     <div class="col-md-12">
-      <a class="btn btn-success btn-add pull-left" ng-click="createCompany()" ng-disabled="selectedCompany"><i class="material-icons">add</i> Neuen Mandant hinzufügen</a>
+      <a class="btn btn-success btn-add pull-left" ng-click="selectedCompany || createCompany()" ng-disabled="selectedCompany"><i class="material-icons">add</i> Neuen Mandant hinzufügen</a>
       <div class="search pull-right">
         <span class="search-icon"></span>
         <input class="search-input pull-right" ng-model="companySearch" type="text" placeholder="Suche…"><i class="search-icon"></i></input>
