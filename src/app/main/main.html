@@ -36,8 +36,8 @@
         <p class="empty">Kein Ergebnis zu Ihrer Suche...<p>
       </div>
       <div ng-repeat="company in companies | filter:companySearch as filteredCompanies">
-        <div class="company" ng-class="getSelectedClass(company.id)" ng-click="toggleCompany(company.id)">
-            <div ng-class="(selectedCompany && selectedCompany === company.id) ? 'col-md-9' : 'col-md-6'">
+        <div class="company" ng-class="getSelectedClass(company.id)">
+            <div ng-click="toggleCompany(company.id)" ng-class="(selectedCompany && selectedCompany === company.id) ? 'col-md-9' : 'col-md-6'">
               <h1 ng-class="(selectedCompany && selectedCompany === company.id) ? 'title-selected' : 'title'" >{{company.title || 'MANDANT'}}</h1>
               <h2 class="subtitle" ng-if="selectedCompany !== company.id">{{company.zip_code}} {{company.city}}</h2>
             </div>
@@ -58,7 +58,7 @@
                 <input class="datepicker-input" ng-model="dateModel" ng-change="company.license_to_date = dateModel" type="text"/>
               </datepicker>
             </div>
-            <div class="col-md-1 company-settings" ng-if="selectedCompany !== company.id">
+            <div class="col-md-1 company-settings" ng-click="toggleCompany(company.id)"  ng-if="selectedCompany !== company.id">
               <span class="caret caret-settings"></span>
             </div>
         </div>
