@@ -90,8 +90,10 @@
     box-shadow: 0 1px 4px 0 rgba(155, 154, 155, 0.4);
 
     .company-panel {
-      width: 48%;
+      width: 48% !important;
       float: left;
+      padding-right: 20px !important;
+      padding-left: 20px !important;
     }
 
     .company-owner-panel {
@@ -125,17 +127,23 @@
       margin-right: 2px;
       margin-left: 2px;
       width: 49%;
+      padding-left: 0px;
+      padding-right: 0px;
     }
 
     .col-md-4 {
       margin-right: 2px;
       margin-left: 2px;
       width: 32.45%;
+      padding-left: 0px;
+      padding-right: 0px;
     }
 
     .col-md-12 {
       width: 98.7%;
       margin-left: 2px;
+      padding-left: 0px;
+      padding-right: 0px;
     }
 
     .block-title {
@@ -165,6 +173,7 @@
 
   .company-input {
     height: 60px;
+    width: 100%;
     padding: 8px 13px 10px 20px;
     font-size: 14px;
     line-height: 1.5;
@@ -285,6 +294,20 @@
       }
     }
   }
+}
+
+.input-container {
+  position: relative;
+}
+
+.required-sign {
+  height: 6px;
+  width: 6px;
+  position: absolute;
+  left: 6px;
+  top: 26px;
+  background-color: #f8e71c;
+  border-radius: 6px;
 }
 
 

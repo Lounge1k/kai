@@ -67,13 +67,28 @@
             <div class="col-md-6 company-panel">
               <span class="block-title">ANGABEN ZUR FIRMA</span>
               <div class="row">
-                <input type="text" required placeholder="Firmenname" class="company-input col-md-6" ng-model="company.title"/>
-                <input type="text" required placeholder="Addresse" class="company-input col-md-6" ng-model="company.street"/>
+                <div class="input-container col-md-6" ng-class="editForm.company.title.$error.required ? 'required-error' : ''">
+                  <input type="text" required placeholder="Firmenname" class="company-input" ng-model="company.title"/>
+                  <span class="required-sign"></span>
+                </div>
+                <div class="input-container col-md-6">
+                  <input type="text" required placeholder="Addresse" class="company-input" ng-model="company.street"/>
+                  <span class="required-sign"></span>
+                </div>
               </div>
               <div class="row">
-                <input type="text" required placeholder="PLZ" class="company-input col-md-4" ng-model="company.zip_code"/>
-                <input type="text" required placeholder="Land" class="company-input col-md-4" ng-model="company.city"/>
-                <input type="text" required placeholder="Stadt" class="company-input col-md-4" ng-model="company.province"/>
+                <div class="input-container col-md-4">
+                  <input type="text" required placeholder="PLZ" class="company-input" ng-model="company.zip_code"/>
+                  <span class="required-sign"></span>
+                </div>
+                <div class="input-container col-md-4">
+                  <input type="text" required placeholder="Land" class="company-input" ng-model="company.city"/>
+                  <span class="required-sign"></span>
+                </div>
+                <div class="input-container col-md-4">
+                  <input type="text" required placeholder="Stadt" class="company-input" ng-model="company.province"/>
+                  <span class="required-sign"></span>
+                </div>
               </div>
               <div class="row">
                 <div class="count-users col-md-6">
@@ -102,17 +117,31 @@
                 <button class="company-input btn-select col-md-6" ng-class="company.ownerProfile.salutation === 'Frau' ? 'btn-selected' : ''" ng-click="company.ownerProfile.salutation = 'Frau'"><i class="material-icons">done</i> Frau</button>
               </div>
               <div class="row">
-                <input type="text" required class="company-input col-md-6" placeholder="Vorname" ng-model="company.ownerProfile.first_name"/>
-                <input type="text" required class="company-input col-md-6" placeholder="Nachname" ng-model="company.ownerProfile.last_name"/>
+                <div class="input-container col-md-6">
+                  <input type="text" required class="company-input" placeholder="Vorname" ng-model="company.ownerProfile.first_name"/>
+                  <span class="required-sign"></span>
+                </div>
+                <div class="input-container col-md-6">
+                  <input type="text" required class="company-input" placeholder="Nachname" ng-model="company.ownerProfile.last_name"/>
+                  <span class="required-sign"></span>
+                </div>
               </div>
               <div class="row">
-                <input type="text" required class="company-input col-md-12" placeholder="E-Mail" ng-model="company.ownerProfile.email"/>
+                <div class="input-container col-md-12">
+                  <input type="text" required class="company-input" placeholder="E-Mail" ng-model="company.ownerProfile.email"/>
+                  <span class="required-sign"></span>
+                </div>
               </div>
               <div class="row">
-                <input type="text" required class="company-input col-md-12" placeholder="Telefon" ng-model="company.ownerProfile.phone"/>
+                <div class="input-container col-md-12">
+                  <input type="text" required class="company-input" placeholder="Telefon" ng-model="company.ownerProfile.phone"/>
+                  <span class="required-sign"></span>
+                </div>
               </div>
               <div class="row">
-                <input type="text" class="company-input col-md-12" placeholder="Website" ng-model="company.ownerProfile.web_site"/>
+                <div class="input-container col-md-12">
+                  <input type="text" class="company-input" placeholder="Website" ng-model="company.ownerProfile.web_site"/>
+                </div>
               </div>
             </div>
             <div class="col-md-12 action-buttons">
